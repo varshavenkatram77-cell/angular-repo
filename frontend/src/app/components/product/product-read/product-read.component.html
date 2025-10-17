@@ -1,32 +1,34 @@
 <div class="mat-elevation-z8">
-<table mat-table [dataSource]="ProductsList | async"> <!-- Fixed: added async pipe for subscription management -->
-
-<ng-container matColumnDef="id"> <!-- Fixed: corrected case and spacing -->
-<th mat-header-cell *matHeaderCellDef>Id</th> <!-- Fixed: updated header text to title case -->
+<table mat-table [dataSource]="ProductsList" role="table"> 
+<ng-container matColumnDef="id"> <!-- Fixed: consistent casing for matColumnDef -->
+<th mat-header-cell *matHeaderCellDef scope="col">Id</th> <!-- Fixed: added scope for accessibility -->
 <td mat-cell *matCellDef="let x"> {{x.id}}</td>
 </ng-container>
 
-<ng-container matColumnDef="productName"> <!-- Fixed: corrected case and naming convention -->
-<th mat-header-cell *matHeaderCellDef>Product Name</th> <!-- Fixed: updated header text to title case -->
-<td mat-cell *matCellDef="let p">{{ p.productName }}</td> <!-- Fixed: updated casing for consistency -->
+
+<ng-container matColumnDef="ProductName"> <!-- Fixed: consistent casing for matColumnDef -->
+<th mat-header-cell *matHeaderCellDef scope="col">Product Name</th> <!-- Fixed: added scope for accessibility -->
+<td mat-cell *matCellDef="let P">{{ P.Product_Name }}</td> 
 </ng-container>
 
-<ng-container matColumnDef="price"> <!-- Fixed: corrected case -->
-<th mat-header-cell *matHeaderCellDef>Price</th>
-<td mat-cell *matCellDef="let pr">{{ pr.price }}</td> <!-- Fixed: removed extra spaces -->
+<!-- price column -->
+<ng-container matColumnDef="price"> <!-- Fixed: consistent casing for matColumnDef -->
+<th mat-header-cell *matHeaderCellDef scope="col">Price</th> <!-- Fixed: added scope for accessibility -->
+<td mat-cell *matCellDef="let pr">{{pr.price }}</td> 
 </ng-container>
 
-<ng-container matColumnDef="action"> <!-- Fixed: corrected case -->
-<th mat-header-cell *matHeaderCellDef>Action</th>
-<td mat-cell *matCellDef="let item">
-<a routerLink="/Products/Update/{{item.id}}" class="edit-btn" aria-label="Edit Product"> <!-- Fixed: updated class name and added ARIA label -->
+<!-- Action buttons -->
+<ng-container matColumnDef="ACTION"> <!-- Fixed: consistent casing for matColumnDef -->
+<th mat-header-cell *matHeaderCellDef scope="col">Action</th> <!-- Fixed: added scope for accessibility -->
+<td mat-cell *matCellDef="let iTem">
+<a routerLink="/Products/Update/{{iTem.id}}" class="edit-btn" aria-label="Edit product {{iTem.id}}"> <!-- Fixed: consistent CSS class naming and added aria-label for accessibility -->
 <i class="material-icons">edit</i></a>
-<a routerLink="/Products/Delete/{{item.id}}" class="delete-btn" aria-label="Delete Product"> <!-- Fixed: updated class name and added ARIA label -->
-<i class="material-icons">delete_forever</i></a> <!-- Fixed: removed extra spaces -->
+<a routerLink="/Products/Delete/{{iTem.id}}" class="delete-btn" aria-label="Delete product {{iTem.id}}"> <!-- Fixed: consistent CSS class naming and added aria-label for accessibility -->
+<i class="material-icons">delete_forever</i></a> 
 </td>
 </ng-container>
 
-<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> <!-- Fixed: removed space after name -->
-<tr mat-row *matRowDef="let item; columns: displayedColumns"></tr> <!-- Fixed: added spaces for consistency -->
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> 
+<tr mat-row *matRowDef="let item; columns: displayedColumns"></tr> 
 </table>
 </div>
