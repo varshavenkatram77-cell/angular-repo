@@ -9,7 +9,7 @@
         name="name"
         disabled
       />
-    </mat>
+    </mat-form-field> <!-- Fixed: corrected closing tag -->
     <mat-form-field>
       <input
         matInput
@@ -20,7 +20,7 @@
       />
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="deleteProduct" color="warn">
+  <button mat-raised-button (click)="deleteProduct()" color="warn" aria-label="Delete product"> <!-- Fixed: added parentheses to invoke method and added aria-label -->
     Delete
   </button>
 
