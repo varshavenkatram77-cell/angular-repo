@@ -2,27 +2,31 @@
   <mat-card-title>Delete product</mat-card-title>
   <form>
     <mat-form-field>
+      <mat-label>Name</mat-label> <!-- Fixed: added label for accessibility -->
       <input
         matInput
         placeholder="Name"
         [value]="product.name"
         name="name"
         disabled
+        aria-label="Product Name" <!-- Fixed: added aria-label for accessibility -->
       />
-    </mat-form-field> <!-- Fixed: corrected closing tag -->
+    </mat-form-field>
     <mat-form-field>
+      <mat-label>Price (R$)</mat-label> <!-- Fixed: added label for accessibility -->
       <input
         matInput
         placeholder="Price (R$)"
         [value]="product.price"
         name="price"
         disabled
+        aria-label="Product Price" <!-- Fixed: added aria-label for accessibility -->
       />
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="deleteProduct()" color="warn" aria-label="Delete product"> <!-- Fixed: added parentheses to method call and aria-label for accessibility -->
+  <button mat-raised-button (click)="deleteProduct()" color="warn"> <!-- Fixed: added parentheses to invoke the method -->
     Delete
   </button>
 
-  <button mat-raised-button (click)="cancel()" aria-label="Cancel product deletion">Cancel</button> <!-- Fixed: added aria-label for accessibility -->
+  <button mat-raised-button (click)="cancel()">Cancel</button>
 </mat-card>
