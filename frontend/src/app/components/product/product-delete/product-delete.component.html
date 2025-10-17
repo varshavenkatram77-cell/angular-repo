@@ -9,7 +9,7 @@
         name="name"
         disabled
       />
-    </mat-form-field> <!-- Fixed: corrected closing tag from </mat> to </mat-form-field> -->
+    </mat-form-field> <!-- Fixed: corrected closing tag -->
     <mat-form-field>
       <input
         matInput
@@ -20,9 +20,9 @@
       />
     </mat-form-field>
   </form>
-  <button mat-raised-button (click)="deleteProduct()" color="warn" aria-label="Delete product"> <!-- Fixed: changed (click)="deleteProduct" to (click)="deleteProduct()" and added aria-label for accessibility -->
+  <button mat-raised-button (click)="deleteProduct()" color="warn" aria-label="Delete product"> <!-- Fixed: added parentheses to method call and aria-label for accessibility -->
     Delete
   </button>
 
-  <button mat-raised-button (click)="cancel()" aria-label="Cancel deletion">Cancel</button> <!-- Added aria-label for accessibility -->
+  <button mat-raised-button (click)="cancel()" aria-label="Cancel product deletion">Cancel</button> <!-- Fixed: added aria-label for accessibility -->
 </mat-card>
