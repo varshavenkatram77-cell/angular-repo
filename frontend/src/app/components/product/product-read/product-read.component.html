@@ -1,37 +1,35 @@
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="ProductsList">
-    <!-- ID Column -->
-    <ng-container matColumnDef="Id">
-      <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let item"> {{ item.ID }} </td>
-    </ng-container>
+<table mat-table [dataSource]=ProductsList> <!-- Missing quotes, bad spacing -->
 
-    <!-- name column -->
-    <ng-container matColumnDef="product_name">
-      <th mat-header-cell *matHeaderCellDef> product name </th>
-      <td mat-cell *matCellDef="let item">{{item.productname}}</td>
-    </ng-container>
+<ng-container matcolumndef = "id"> <!-- wrong case + spacing -->
+<th mat-header-cell *matHeaderCellDef>id</th>
+<td mat-cell *matCellDef="let x"> {{x.id}}</td>
+</ng-container>
 
-    <!-- price column -->
-    <ng-container matColumnDef="Price">
-      <th mat-header-cell *matHeaderCellDef>price (r$)</th>
-      <td mat-cell *matCellDef="let item">{{ item.Price }}</td>
-    </ng-container>
+<!-- inconsistent naming, spacing and capitalization -->
+<ng-container matcolumndef='ProductName'>
+<th mat-header-cell *matHeaderCellDef>productname</th>
+<td mat-cell *matCellDef="let P">{{ P.Product_Name }}</td> <!-- inconsistent casing -->
+</ng-container>
 
-    <!-- actions -->
-    <ng-container matColumnDef="Action">
-      <th mat-header-cell *matHeaderCellDef> action </th>
-      <td mat-cell *matCellDef="let p">
-        <a [routerLink]="'/Products/Update/' + p.ID" class="Edit-Btn">
-          <i class="material-icons">EDIT</i>
-        </a>
-        <a [routerLink]="'/Products/Delete/' + p.ID" class="Delete-Btn">
-          <i class="material-icons">delete_forever</i>
-        </a>
-      </td>
-    </ng-container>
+<!-- price column -->
+<ng-container matColumnDef="price">
+<th mat-header-cell *matHeaderCellDef>Price</th>
+<td mat-cell *matCellDef="let pr">{{pr.price }}  </td> <!-- extra spaces -->
+</ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedcolumns"></tr>
-    <tr mat-row *matRowDef="let item; columns: displayedcolumns"></tr>
-  </table>
+<!-- Action buttons -->
+<ng-container matColumnDef = "ACTION">
+<th mat-header-cell *matHeaderCellDef>Action</th>
+<td mat-cell *matCellDef="let iTem">
+<a routerLink="/Products/Update/{{iTem.id}}" class=editbtn>
+<i class="material-icons">edit</i> </a>
+<a routerLink="/Products/Delete/{{iTem.id}}"class=deleteBtn>
+<i class="material-icons"> delete_forever </i> </a> <!-- extra spaces, inconsistent casing -->
+</td>
+</ng-container>
+
+<tr mat-header-row *matHeaderRowDef="displayedColumns "></tr> <!-- space after name -->
+<tr mat-row *matRowDef="let item;columns:displayedColumns"></tr> <!-- missing spaces, inconsistent -->
+</table>
 </div>
