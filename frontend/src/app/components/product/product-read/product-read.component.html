@@ -1,34 +1,33 @@
 <div class="mat-elevation-z8">
-<table mat-table [dataSource]=ProductsList> 
-<ng-container matcolumndef = "id">
-<th mat-header-cell *matHeaderCellDef>id</th>
+<table mat-table [dataSource]="ProductsList | async">  <!-- Fixed: added async pipe to manage subscriptions -->
+<ng-container matColumnDef="id">  <!-- Fixed: camelCase for matColumnDef -->
+<th mat-header-cell *matHeaderCellDef>Id</th>  <!-- Fixed: changed 'id' to 'Id' for consistency -->
 <td mat-cell *matCellDef="let x"> {{x.id}}</td>
 </ng-container>
 
-
-<ng-container matcolumndef='ProductName'>
-<th mat-header-cell *matHeaderCellDef>productname</th>
-<td mat-cell *matCellDef="let P">{{ P.Product_Name }}</td> 
+<ng-container matColumnDef="productName">  <!-- Fixed: camelCase for matColumnDef -->
+<th mat-header-cell *matHeaderCellDef>Product Name</th>  <!-- Fixed: changed 'productname' to 'Product Name' for consistency -->
+<td mat-cell *matCellDef="let P">{{ P.product_Name }}</td>  <!-- Fixed: changed 'Product_Name' to 'product_Name' for camelCase -->
 </ng-container>
 
 <!-- price column -->
-<ng-container matColumnDef="price">
+<ng-container matColumnDef="price">  <!-- Fixed: camelCase for matColumnDef -->
 <th mat-header-cell *matHeaderCellDef>Price</th>
-<td mat-cell *matCellDef="let pr">{{pr.price }}  </td> 
+<td mat-cell *matCellDef="let pr">{{pr.price }}</td> 
 </ng-container>
 
 <!-- Action buttons -->
-<ng-container matColumnDef = "ACTION">
+<ng-container matColumnDef="action">  <!-- Fixed: camelCase for matColumnDef -->
 <th mat-header-cell *matHeaderCellDef>Action</th>
 <td mat-cell *matCellDef="let iTem">
-<a routerLink="/Products/Update/{{iTem.id}}" class=editbtn>
+<a routerLink="/Products/Update/{{iTem.id}}" class="edit-btn">  <!-- Fixed: consistent class naming with BEM style -->
 <i class="material-icons">edit</i> </a>
-<a routerLink="/Products/Delete/{{iTem.id}}"class=deleteBtn>
+<a routerLink="/Products/Delete/{{iTem.id}}" class="delete-btn">  <!-- Fixed: consistent class naming with BEM style -->
 <i class="material-icons"> delete_forever </i> </a> 
 </td>
 </ng-container>
 
-<tr mat-header-row *matHeaderRowDef="displayedColumns "></tr> 
+<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> 
 <tr mat-row *matRowDef="let item;columns:displayedColumns"></tr> 
 </table>
 </div>
